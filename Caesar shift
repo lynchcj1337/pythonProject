@@ -1,0 +1,25 @@
+# The password list - We start with it populated for testing purposes
+passwords = [["yahoo", "XqffoZeo"], ["google", "CoIushujSetu"]]
+
+# Convert each password string to a list of ASCII codes
+new_value = [[ord(char) for char in password] for sublist in passwords for password in sublist]
+
+# Function to perform Caesar shift encryption
+def caeser_shift(password, shift):
+    # Placeholder for encrypted result
+    result = ""
+
+    # Encrypt each character in the password
+    for char_code in password:
+        new_char_code = char_code + shift
+        new_char = chr(new_char_code)
+        result += new_char
+
+    return result
+
+# Testing caeser_shift function with new_value
+for password in new_value:
+    result = caeser_shift(password, 5)
+    print(f"Original Password: {''.join(chr(char) for char in password)}")
+    print(f"Encrypted Password: {result}")
+    print()
